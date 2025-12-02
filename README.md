@@ -16,11 +16,12 @@
 
 ```bash
 wget -N https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/install.sh && bash install.sh
+```
 
 ## 🗑 卸载方法
 
 如果你想停止服务并清理所有文件，请运行：
 
 ```bash
-wget -N [https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/uninstall.sh](https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/uninstall.sh) && bash uninstall.sh
-
+wget -N https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/uninstall.sh && bash uninstall.sh
+```
