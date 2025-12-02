@@ -15,4 +15,4 @@
 在 SSH 终端复制并运行以下命令即可：
 
 ```bash
-wget -N [https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/install.sh](https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/install.sh) && bash install.sh
+wget -N https://raw.githubusercontent.com/qq540187000/suoha-fixed/main/install.sh && bash install.sh
