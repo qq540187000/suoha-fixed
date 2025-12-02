@@ -7,7 +7,7 @@ YELLOW='\033[0;33m'
 PLAIN='\033[0m'
 
 echo -e "${GREEN}==========================================================${PLAIN}"
-echo -e "${GREEN}      Cloudflare Tunnel + Xray 一键部署脚本 (修复版)      ${PLAIN}"
+echo -e "${GREEN}      Cloudflare Tunnel + Xray 一键部署脚本 (优化版)      ${PLAIN}"
 echo -e "${GREEN}      适用：NAT 机器、动态 IP、无公网 IP 环境             ${PLAIN}"
 echo -e "${GREEN}      功能：自动配置 Argo 隧道，生成标准 VMess 链接       ${PLAIN}"
 echo -e "${GREEN}==========================================================${PLAIN}"
@@ -107,11 +107,11 @@ if [ -z "$ARGO_DOMAIN" ]; then
 fi
 
 # 6. 生成标准 VMess 链接
-# 链接1：优选IP模式 (Address: speed.cloudflare.com, Host: 隧道域名)
+# 链接1：优选IP模式 (使用兼容性更好的 www.visa.com)
 VMESS_JSON_CF='{
   "v": "2",
-  "ps": "Argo_优选IP_'$(hostname)'",
-  "add": "speed.cloudflare.com",
+  "ps": "Argo_优选VISA_'$(hostname)'",
+  "add": "www.visa.com",
   "port": "443",
   "id": "'$UUID'",
   "aid": "0",
@@ -153,10 +153,11 @@ echo -e "Path:   ${YELLOW}$PATH_W${PLAIN}"
 echo -e "Domain: ${YELLOW}$ARGO_DOMAIN${PLAIN}"
 echo -e ""
 echo -e "${GREEN}----------------------------------------------------------${PLAIN}"
-echo -e "节点 1 (推荐): 使用 speed.cloudflare.com 优选 IP (复制下方链接)"
+echo -e "节点 1 (推荐): 已预设 www.visa.com 优选域名"
 echo -e "${YELLOW}$VMESS_LINK_CF${PLAIN}"
+echo -e "提示：如果连不上，请将地址修改为其他优选IP (如 icook.tw, speed.cloudflare.com)"
 echo -e "${GREEN}----------------------------------------------------------${PLAIN}"
-echo -e "节点 2 (备用): 使用自动域名 (复制下方链接)"
+echo -e "节点 2 (备用): 使用自动域名 (直连隧道)"
 echo -e "${YELLOW}$VMESS_LINK_AUTO${PLAIN}"
 echo -e "${GREEN}==========================================================${PLAIN}"
 
